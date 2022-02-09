@@ -11,15 +11,15 @@
               <div class="col-md-12">
               <?php
                    include "config.php";
-                   $limit = 3;
+                    $limit = 3;
 
-                  if(isset($_GET['page'])) {
-                    $page = $_GET['page'];
-                  }else{
-                      $page = 1;
-                      
-                  }
-                   $offset = ($page - 1) * $limit;
+                    if(isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                    }else{
+                        $page = 1;
+                        
+                    }
+                    $offset = ($page - 1) * $limit;
                   // var_dump($offset);
                   if($_SESSION["user_role"] == 1) {
                     $sql = "SELECT * FROM post 
