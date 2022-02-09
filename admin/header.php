@@ -29,7 +29,7 @@ if(!isset( $_SESSION["username"])){
                 <div class="row">
                     <!-- LOGO -->
                     <div class="col-md-2">
-                        <a href="post.php"><img class="logo" src="images/news.jpg"></a>
+                        <a href="post.php"><img class="logo" src="images/logo.png"></a>
                     </div>
                     <!-- /LOGO -->
                       <!-- LOGO-Out -->
