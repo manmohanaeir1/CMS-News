@@ -6,16 +6,18 @@
                 <!-- post-container -->
                 <div class="post-container">
                     <?php
-                     $sql1 = "SELECT * FROM category WHERE category_id = {$cat_id}";
-                     $result1 = mysqli_query($conn, $sql1) or die("Query failed");
-                     $row1 = mysqli_fetch_assoc($result1);
-                     ?>
-                  <h2 class="page-heading"><?php echo $row1['category_name'];?></h2>
-                  <?php
+                    
+              
                         include "config.php";
                         if(isset($_GET['cid'])){
                             $cat_id = $_GET['cid'];
-                        }        
+                            $sql1 = "SELECT * FROM category WHERE category_id = {$cat_id}";
+                            $result1 = mysqli_query($conn, $sql1) or die("Query failed");
+                            $row1 = mysqli_fetch_assoc($result1);
+                            ?>
+                         <h2 class="page-heading"><?php echo $row1['category_name'];?></h2>
+                           
+                        <?php  
                         $limit = 3;
 
                         if(isset($_GET['page'])) {
@@ -53,7 +55,7 @@
                                             </span>
                                             <span>
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <a href='author.php'><?php echo $row['username'];?></a>
+                                                <a href='author.php?aid=<?php echo $row['author'];?>'><?php echo $row['username'];?></a>
                                             </span>
                                             <span>
                                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -96,7 +98,8 @@
                         $active = "active";
 
                         
-                    }else{
+                    }
+                    else{
                         $active = "";
                     }
                         echo '<li class ="'.$active.'"><a href= "index.php?'. $cat_id .' &page='.$i.'">'.$i.'</a></li>';
@@ -104,6 +107,7 @@
                     if ($total_page > $page) {
                         echo '<li><a href = "index.php?'. $cat_id .' &page='.($page + 1).'">Next</a></li>';
                      }
+                    }
                     echo '</ul>';
                     }    
                 ?>            
